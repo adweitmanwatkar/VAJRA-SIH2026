@@ -1,0 +1,123 @@
+import type { Material } from '../domain/types'
+
+/**
+ * REFERENCE / PROTOTYPE PROPERTY SET — publicly available typical values for
+ * screening-level analysis only. These are NOT DRDO-authorized data.
+ * The schema is parameterized so an authorized dataset can replace it later.
+ */
+export const REFERENCE_MATERIALS: Material[] = [
+  {
+    id: 'steel-sheet',
+    name: 'Steel Sheet (Galvanised)',
+    category: ['wall', 'roof', 'floor'],
+    density: 7850,
+    conductivity: 50,
+    specificHeat: 490,
+    thickness: 0.0016,
+    isReference: true,
+    note: 'Typical GI cladding sheet. Very low R-value; used as baseline envelope.',
+  },
+  {
+    id: 'aluminium',
+    name: 'Aluminium Panel',
+    category: ['wall', 'roof'],
+    density: 2700,
+    conductivity: 205,
+    specificHeat: 900,
+    thickness: 0.0015,
+    isReference: true,
+    note: 'Lightweight cladding; negligible thermal resistance.',
+  },
+  {
+    id: 'concrete',
+    name: 'Concrete (PCC)',
+    category: ['wall', 'roof', 'floor'],
+    density: 2400,
+    conductivity: 1.7,
+    specificHeat: 840,
+    thickness: 0.1,
+    isReference: true,
+    note: 'High thermal mass; good for hot-arid diurnal damping.',
+  },
+  {
+    id: 'brick',
+    name: 'Brick Masonry',
+    category: ['wall'],
+    density: 1820,
+    conductivity: 0.72,
+    specificHeat: 840,
+    thickness: 0.23,
+    isReference: true,
+    note: 'Conventional masonry wall; moderate mass and resistance.',
+  },
+  {
+    id: 'plywood',
+    name: 'Plywood Sheathing',
+    category: ['wall', 'roof', 'floor'],
+    density: 530,
+    conductivity: 0.13,
+    specificHeat: 1210,
+    thickness: 0.012,
+    isReference: true,
+    note: 'Prefabricated cabin construction; light, low mass.',
+  },
+  {
+    id: 'pur-foam',
+    name: 'Polyurethane Foam Board',
+    category: ['insulation'],
+    density: 32,
+    conductivity: 0.024,
+    specificHeat: 1400,
+    thickness: 0.05,
+    isReference: true,
+    note: 'High-performance insulation; R ≈ 2.1 m²K/W per 50 mm.',
+  },
+  {
+    id: 'mineral-wool',
+    name: 'Mineral Wool',
+    category: ['insulation'],
+    density: 100,
+    conductivity: 0.038,
+    specificHeat: 840,
+    thickness: 0.05,
+    isReference: true,
+    note: 'Standard batt insulation; fire-resistant alternative to foam.',
+  },
+  {
+    id: 'eps',
+    name: 'Expanded Polystyrene (EPS)',
+    category: ['insulation'],
+    density: 20,
+    conductivity: 0.034,
+    specificHeat: 1300,
+    thickness: 0.05,
+    isReference: true,
+    note: 'Low-cost insulation board; good R-value per rupee.',
+  },
+  {
+    id: 'timber',
+    name: 'Timber (Softwood)',
+    category: ['wall', 'roof', 'floor'],
+    density: 510,
+    conductivity: 0.15,
+    specificHeat: 1380,
+    thickness: 0.025,
+    isReference: true,
+    note: 'Log-timber wall option used in high-altitude shelters.',
+  },
+  {
+    id: 'sandbag',
+    name: 'HESCO / Sandbag Fill',
+    category: ['wall'],
+    density: 1600,
+    conductivity: 0.52,
+    specificHeat: 800,
+    thickness: 0.4,
+    isReference: true,
+    note: 'Blast/thermal mass barrier fill; very high areal heat capacity.',
+  },
+]
+
+export function findMaterial(materials: Material[], id: string): Material | undefined {
+  return materials.find((m) => m.id === id)
+}
